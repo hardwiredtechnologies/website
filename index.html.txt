@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardwired Technologies | Digital Marketing & SEO Experts</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Hardwired Technologies offers expert digital marketing, SEO, social media, content, and analytics solutions for business growth.">
+  <meta name="keywords" content="digital marketing, SEO, social media, email marketing, analytics, Hardwired Technologies">
+  <meta name="author" content="Hardwired Technologies">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Hardwired Technologies | Digital Marketing Experts">
+  <meta property="og:description" content="Boost your online presence with expert digital solutions from Hardwired Technologies.">
+  <meta property="og:image" content="https://hardwiredtech.com/og-image.jpg">
+  <meta property="og:url" content="https://hardwiredtech.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hardwired Technologies | Digital Growth Partner">
+  <meta name="twitter:description" content="Custom marketing, SEO, and analytics strategies for your business.">
+  <meta name="twitter:image" content="https://hardwiredtech.com/og-image.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Your body content remains unchanged -->
+
+  <!-- Updated Contact Form -->
+  <form id="contact-form" action="https://formsubmit.co/info@hardwiredtech.com" method="POST">
+    <input type="hidden" name="_subject" value="New contact form submission from website">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://hardwiredtech.com/thank-you">
+    <!-- Other input fields unchanged -->
+  </form>
+
+  <!-- Updated Newsletter Form -->
+  <form id="newsletter-form" action="https://formsubmit.co/info@hardwiredtech.com" method="POST">
+    <input type="hidden" name="_subject" value="New newsletter subscription">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://hardwiredtech.com/thank-you-newsletter">
+    <!-- Other input fields unchanged -->
+  </form>
+
+  <!-- Updated Social Links in Footer -->
+  <footer>
+    <a href="https://facebook.com/hardwiredtech" class="text-gray-400 hover:text-primary">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://twitter.com/hardwiredtech" class="text-gray-400 hover:text-primary">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://linkedin.com/company/hardwiredtech" class="text-gray-400 hover:text-primary">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://instagram.com/hardwiredtech" class="text-gray-400 hover:text-primary">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </footer>
+</body>
+</html>
