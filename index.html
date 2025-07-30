@@ -1,1 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardwired Technologies | Digital Marketing & Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .logo-container {
+            width: 189px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            color: #94a3b8;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .hero-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+        
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.15);
+            filter: blur(80px);
+            z-index: 0;
+            animation: glowPulse 8s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Laptop Animation */
+        .laptop-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            animation: floatUpDown 6s ease-in-out infinite;
+        }
+        
+        .laptop {
+            position: relative;
+            width: 100%;
+            padding-bottom: 65%;
+        }
+        
+        .laptop-body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #334155;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .laptop-screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #1e293b;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .laptop-base {
+            position: absolute;
+            width: 120%;
+            height: 10px;
+            bottom: -10px;
+            left: -10%;
+            background: #475569;
+            border-radius: 0 0 50% 50%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .laptop-notch {
+            position: absolute;
+            width: 15%;
+            height: 5px;
+            bottom: -5px;
+            left: 42.5%;
+            background: #64748b;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .screen-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .screen-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .screen-slide.active {
+            opacity: 1;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            animation: fadeInUp 0.6s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .service-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .service-card:hover h3 {
+            color: #3b82f6;
+        }
+        
+        /* Stats Counter */
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+        }
+        
+        .stat-item {
+            animation: fadeInUp 0.6s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .animated-bg-shape {
+            position: absolute;
+            opacity: 0.05;
+            filter: blur(40px);
+            animation: shapeFloat 15s ease-in-out infinite alternate;
+        }
+        
+        @keyframes shapeFloat {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(30px, -30px);
+            }
+        }
+        
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Animated Gradient Border */
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+            z-index: 0;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #3b82f6, #2563eb, #1d4ed8, #3b82f6);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 0.6rem;
+            animation: gradientBorder 6s ease infinite;
+        }
+        
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Pulse Animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Fade In Left Animation */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Fade In Right Animation */
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Rotate Animation */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Scale Animation */
+        @keyframes scale {
+            0% {
+                transform: scale(0.8);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(0.8);
+            }
+        }
+        
+        /* Typing Animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        /* Blink Animation */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        /* Float Up Down Animation */
+        @keyframes floatUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        /* Shake Animation */
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-5px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(5px);
+            }
+        }
+        
+        /* Ripple Animation */
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 0 20px rgba(59, 130, 246, 0);
+            }
+        }
+        
+        /* Slide In Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Animated elements */
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        .animate-rotate {
+            animation: rotate 10s linear infinite;
+        }
+        
+        .animate-scale {
+            animation: scale 3s ease-in-out infinite;
+        }
+        
+        .animate-ripple {
+            animation: ripple 1.5s infinite;
+        }
+        
+        .animate-slideIn {
+            animation: slideIn 0.8s ease-out both;
+            animation-play-state: paused;
+        }
+        
+        /* Staggered animations */
+        .stagger-item:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-item:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Typing effect */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #3b82f6;
+            width: 0;
+            animation: typing 3.5s steps(40, end) forwards, blink 1s step-end infinite;
+            animation-play-state: paused;
+        }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .hover-rotate:hover {
+            animation: rotate 2s linear;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Navbar animation */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Form success message */
+        .form-success {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .form-success.show {
+            opacity: 1;
+            height: auto;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-slate-900 shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="logo-container animate-fadeIn">
+                            <img src="https://raw.githubusercontent.com/hardwiredtechnologies/website/1bafd3fcc0949fc2fc6fb63a410d5510d61688bc/logo.jpg" alt="Hardwired Technologies Logo" class="logo-img">
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-blue-500 font-medium transition-colors nav-link">Home</a>
+                    <a href="#services" class="text-gray-300 hover:text-blue-500 font-medium transition-colors nav-link">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-blue-500 font-medium transition-colors nav-link">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-blue-500 font-medium transition-colors nav-link">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-300 hover:text-blue-500 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-blue-500">Home</a>
+                <a href="#services" class="block py-2 text-gray-300 hover:text-blue-500">Services</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-blue-500">About</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-blue-500">Contact</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero-section pt-20 pb-16 md:pt-24 md:pb-20">
+        <!-- Glow Effects -->
+        <div class="glow top-20 left-20"></div>
+        <div class="glow bottom-20 right-20"></div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 hero-content">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Left Content -->
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 animate-fadeInLeft">
+                    <div class="overflow-visible">
+                        <h1 class="hero-title text-3xl md:text-4xl lg:text-5xl mb-4 typing-effect">
+                            Welcome to <span class="text-blue-500">Hardwired Technologies</span>
+                        </h1>
+                    </div>
+                    <p class="hero-subtitle text-lg mb-6 max-w-xl animate-fadeIn" style="animation-delay: 0.5s;">
+                        We specialize in creating innovative digital solutions for Canadian businesses. Our team of experts is dedicated to delivering high-quality services that drive results.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 animate-fadeIn" style="animation-delay: 0.8s;">
+                        <a href="#contact" class="hero-btn gradient-bg text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center animate-pulse">
+                            Get Started
+                        </a>
+                        <a href="#services" class="hero-btn bg-slate-800 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center border border-slate-700">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Animation -->
+                <div class="md:w-1/2 flex justify-center md:justify-end animate-fadeInRight">
+                    <div class="laptop-container">
+                        <div class="laptop">
+                            <div class="laptop-body">
+                                <div class="laptop-screen">
+                                    <div class="screen-content">
+                                        <!-- Google Ads Slide -->
+                                        <div class="screen-slide active" id="slide1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%">
+                                                <!-- Google Ads Interface -->
+                                                <rect width="500" height="300" fill="#202124" />
+                                                
+                                                <!-- Top Navigation Bar -->
+                                                <rect x="0" y="0" width="500" height="40" fill="#303134" />
+                                                <circle cx="25" cy="20" r="8" fill="#EA4335" />
+                                                <rect x="45" y="16" width="120" height="8" rx="4" fill="#8AB4F8" />
+                                                <rect x="350" y="16" width="60" height="8" rx="4" fill="#9AA0A6" />
+                                                <rect x="420" y="16" width="60" height="8" rx="4" fill="#9AA0A6" />
+                                                
+                                                <!-- Left Sidebar -->
+                                                <rect x="0" y="40" width="120" height="260" fill="#303134" />
+                                                <rect x="20" y="60" width="80" height="8" rx="4" fill="#9AA0A6" />
+                                                <rect x="20" y="80" width="60" height="8" rx="4" fill="#9AA0A6" />
+                                                <rect x="20" y="100" width="70" height="8" rx="4" fill="#9AA0A6" />
+                                                <rect x="20" y="120" width="80" height="8" rx="4" fill="#8AB4F8" />
+                                                <rect x="20" y="140" width="60" height="8" rx="4" fill="#9AA0A6" />
+                                                
+                                                <!-- Main Content Area -->
+                                                <rect x="140" y="60" width="340" height="40" rx="4" fill="#303134" />
+                                                <rect x="150" y="70" width="100" height="20" rx="4" fill="#8AB4F8" />
+                                                <rect x="260" y="70" width="60" height="20" rx="4" fill="#9AA0A6" />
+                                                <rect x="330" y="70" width="60" height="20" rx="4" fill="#9AA0A6" />
+                                                <rect x="400" y="70" width="60" height="20" rx="4" fill="#9AA0A6" />
+                                                
+                                                <!-- Campaign Performance Graph -->
+                                                <rect x="140" y="120" width="340" height="120" rx="4" fill="#303134" />
+                                                <polyline points="150,220 190,180 230,200 270,150 310,170 350,130 390,160 430,120" 
+                                                        stroke="#4285F4" stroke-width="3" fill="none" />
+                                                <rect x="150" y="130" width="80" height="10" rx="2" fill="#9AA0A6" />
+                                                
+                                                <!-- Campaign Stats -->
+                                                <rect x="140" y="250" width="110" height="40" rx="4" fill="#303134" />
+                                                <rect x="150" y="260" width="60" height="8" rx="2" fill="#9AA0A6" />
+                                                <rect x="150" y="275" width="40" height="8" rx="2" fill="#8AB4F8" />
+                                                
+                                                <rect x="255" y="250" width="110" height="40" rx="4" fill="#303134" />
+                                                <rect x="265" y="260" width="60" height="8" rx="2" fill="#9AA0A6" />
+                                                <rect x="265" y="275" width="40" height="8" rx="2" fill="#8AB4F8" />
+                                                
+                                                <rect x="370" y="250" width="110" height="40" rx="4" fill="#303134" />
+                                                <rect x="380" y="260" width="60" height="8" rx="2" fill="#9AA0A6" />
+                                                <rect x="380" y="275" width="40" height="8" rx="2" fill="#8AB4F8" />
+                                            </svg>
+                                        </div>
+                                        
+                                        <!-- Meta Ads Slide -->
+                                        <div class="screen-slide" id="slide2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%">
+                                                <!-- Meta Ads Interface -->
+                                                <rect width="500" height="300" fill="#18191A" />
+                                                
+                                                <!-- Top Navigation Bar -->
+                                                <rect x="0" y="0" width="500" height="40" fill="#242526" />
+                                                <circle cx="25" cy="20" r="8" fill="#0866FF" />
+                                                <rect x="45" y="16" width="120" height="8" rx="4" fill="#E4E6EB" />
+                                                <rect x="350" y="16" width="60" height="8" rx="4" fill="#B0B3B8" />
+                                                <rect x="420" y="16" width="60" height="8" rx="4" fill="#B0B3B8" />
+                                                
+                                                <!-- Left Sidebar -->
+                                                <rect x="0" y="40" width="120" height="260" fill="#242526" />
+                                                <rect x="20" y="60" width="80" height="8" rx="4" fill="#B0B3B8" />
+                                                <rect x="20" y="80" width="60" height="8" rx="4" fill="#B0B3B8" />
+                                                <rect x="20" y="100" width="70" height="8" rx="4" fill="#B0B3B8" />
+                                                <rect x="20" y="120" width="80" height="8" rx="4" fill="#0866FF" />
+                                                <rect x="20" y="140" width="60" height="8" rx="4" fill="#B0B3B8" />
+                                                
+                                                <!-- Main Content Area -->
+                                                <rect x="140" y="60" width="340" height="40" rx="4" fill="#242526" />
+                                                <rect x="150" y="70" width="100" height="20" rx="4" fill="#0866FF" />
+                                                <rect x="260" y="70" width="60" height="20" rx="4" fill="#3A3B3C" />
+                                                <rect x="330" y="70" width="60" height="20" rx="4" fill="#3A3B3C" />
+                                                <rect x="400" y="70" width="60" height="20" rx="4" fill="#3A3B3C" />
+                                                
+                                                <!-- Ad Performance Graph -->
+                                                <rect x="140" y="120" width="340" height="120" rx="4" fill="#242526" />
+                                                <polyline points="150,220 190,190 230,210 270,160 310,180 350,140 390,170 430,130" 
+                                                        stroke="#0866FF" stroke-width="3" fill="none" />
+                                                <rect x="150" y="130" width="80" height="10" rx="2" fill="#B0B3B8" />
+                                                
+                                                <!-- Ad Stats -->
+                                                <rect x="140" y="250" width="110" height="40" rx="4" fill="#242526" />
+                                                <rect x="150" y="260" width="60" height="8" rx="2" fill="#B0B3B8" />
+                                                <rect x="150" y="275" width="40" height="8" rx="2" fill="#0866FF" />
+                                                
+                                                <rect x="255" y="250" width="110" height="40" rx="4" fill="#242526" />
+                                                <rect x="265" y="260" width="60" height="8" rx="2" fill="#B0B3B8" />
+                                                <rect x="265" y="275" width="40" height="8" rx="2" fill="#0866FF" />
+                                                
+                                                <rect x="370" y="250" width="110" height="40" rx="4" fill="#242526" />
+                                                <rect x="380" y="260" width="60" height="8" rx="2" fill="#B0B3B8" />
+                                                <rect x="380" y="275" width="40" height="8" rx="2" fill="#0866FF" />
+                                            </svg>
+                                        </div>
+                                        
+                                        <!-- Graphic Design Slide -->
+                                        <div class="screen-slide" id="slide3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%">
+                                                <!-- Design Software Interface -->
+                                                <rect width="500" height="300" fill="#1E1E1E" />
+                                                
+                                                <!-- Top Menu Bar -->
+                                                <rect x="0" y="0" width="500" height="30" fill="#2D2D2D" />
+                                                <rect x="10" y="10" width="30" height="10" rx="2" fill="#E83E8C" />
+                                                <rect x="50" y="10" width="30" height="10" rx="2" fill="#6F42C1" />
+                                                <rect x="90" y="10" width="30" height="10" rx="2" fill="#20C997" />
+                                                <rect x="130" y="10" width="30" height="10" rx="2" fill="#FD7E14" />
+                                                
+                                                <!-- Left Toolbar -->
+                                                <rect x="0" y="30" width="40" height="270" fill="#2D2D2D" />
+                                                <circle cx="20" cy="50" r="8" fill="#E83E8C" />
+                                                <rect x="12" y="70" width="16" height="16" fill="#6F42C1" />
+                                                <polygon points="12,100 28,100 20,116" fill="#20C997" />
+                                                <circle cx="20" cy="140" r="8" stroke="#FD7E14" stroke-width="2" fill="none" />
+                                                
+                                                <!-- Canvas Area with Design -->
+                                                <rect x="40" y="30" width="460" height="270" fill="#333333" />
+                                                
+                                                <!-- Design Elements -->
+                                                <circle cx="250" cy="150" r="80" fill="#6F42C1" opacity="0.7" />
+                                                <rect x="200" y="100" width="100" height="100" rx="10" fill="#20C997" opacity="0.7" />
+                                                <polygon points="250,80 290,150 210,150" fill="#E83E8C" opacity="0.7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="laptop-base"></div>
+                                <div class="laptop-notch"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                <div class="bg-slate-800/50 p-6 rounded-lg text-center border border-slate-700/30 stat-item stagger-item hover-lift">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-500 mb-2 stat-counter" data-target="150">0</div>
+                    <p class="text-gray-400">Projects Completed</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-lg text-center border border-slate-700/30 stat-item stagger-item hover-lift">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-500 mb-2 stat-counter" data-target="98">0</div>
+                    <p class="text-gray-400">Satisfied Clients</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-lg text-center border border-slate-700/30 stat-item stagger-item hover-lift">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-500 mb-2 stat-counter" data-target="10">0</div>
+                    <p class="text-gray-400">Years Experience</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-lg text-center border border-slate-700/30 stat-item stagger-item hover-lift">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-500 mb-2 stat-counter" data-target="25">0</div>
+                    <p class="text-gray-400">Team Members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-20 bg-slate-900 relative">
+        <div class="animated-bg">
+            <div class="animated-bg-shape" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%); width: 500px; height: 500px; top: -100px; left: -100px;"></div>
+            <div class="animated-bg-shape" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%); width: 400px; height: 400px; bottom: -50px; right: -50px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-1">
+            <div class="text-center mb-12 animate-fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    We offer a comprehensive range of digital services to help your Canadian business grow and succeed online.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Web Development -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Web Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        We create responsive, user-friendly websites that are optimized for performance and search engines. Our custom web solutions are tailored to meet your specific business needs.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2: SEO -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Search Engine Optimization</h3>
+                    <p class="text-gray-400 mb-6">
+                        Improve your website's visibility in Canadian search results with our data-driven SEO strategies. We help you rank higher and attract more qualified traffic to your site.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3: Email Marketing -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Email Marketing</h3>
+                    <p class="text-gray-400 mb-6">
+                        Engage your audience and drive conversions with our targeted email marketing campaigns. We create compelling content that resonates with your Canadian customers.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4: Graphic Design -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <line x1="21.17" y1="8" x2="12" y2="8"></line>
+                            <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
+                            <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Graphic Design</h3>
+                    <p class="text-gray-400 mb-6">
+                        Stand out with professional graphic design services. From logos to marketing materials, we create visually appealing designs that strengthen your brand identity.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5: Social Media Marketing -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Social Media Marketing</h3>
+                    <p class="text-gray-400 mb-6">
+                        Build your brand presence on social media platforms with our strategic management services. We help you connect with your audience and grow your online community.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6: Content Creation -->
+                <div class="service-card bg-slate-800/80 p-6 rounded-lg border border-slate-700/50 stagger-item">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 service-icon animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 transition-colors duration-300">Content Creation</h3>
+                    <p class="text-gray-400 mb-6">
+                        Engage your audience with high-quality, SEO-friendly content. Our content creation services include blog posts, articles, and website copy tailored for the Canadian market.
+                    </p>
+                    <a href="#contact" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Featured Service -->
+            <div class="mt-16 animate-fadeIn" style="animation-delay: 0.5s;">
+                <div class="bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700/30 hover-glow transition-all duration-500">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-1/2 p-8 md:p-12 animate-fadeInLeft" style="animation-delay: 0.7s;">
+                            <div class="gradient-border inline-block p-2 rounded-lg mb-6 animate-pulse">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">Full-Service Digital Marketing</h3>
+                            <p class="text-gray-300 mb-6">
+                                Our comprehensive digital marketing packages combine multiple services to create a powerful online presence for your business. We develop customized strategies that align with your goals and target audience.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start animate-fadeInLeft" style="animation-delay: 0.8s;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mt-1 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-300">Integrated marketing campaigns</span>
+                                </li>
+                                <li class="flex items-start animate-fadeInLeft" style="animation-delay: 0.9s;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mt-1 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-300">Performance tracking and analytics</span>
+                                </li>
+                                <li class="flex items-start animate-fadeInLeft" style="animation-delay: 1s;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mt-1 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-300">Continuous optimization and improvement</span>
+                                </li>
+                            </ul>
+                            <a href="#contact" class="gradient-bg text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 inline-block animate-ripple">
+                                Get a Free Consultation
+                            </a>
+                        </div>
+                        <div class="lg:w-1/2 bg-slate-900 flex items-center justify-center p-8 animate-fadeInRight" style="animation-delay: 0.7s;">
+                            <div class="relative w-full max-w-md animate-floating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="w-full h-auto">
+                                    <!-- Digital Marketing Illustration -->
+                                    <rect width="400" height="300" fill="none" />
+                                    
+                                    <!-- Background Elements -->
+                                    <circle cx="200" cy="150" r="120" fill="#1e293b" />
+                                    <circle cx="200" cy="150" r="90" fill="#0f172a" />
+                                    
+                                    <!-- Connection Lines -->
+                                    <line x1="140" y1="100" x2="180" y2="130" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" />
+                                    <line x1="260" y1="100" x2="220" y2="130" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" />
+                                    <line x1="140" y1="200" x2="180" y2="170" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" />
+                                    <line x1="260" y1="200" x2="220" y2="170" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" />
+                                    
+                                    <!-- Central Hub -->
+                                    <circle cx="200" cy="150" r="30" fill="#2563eb" class="animate-pulse" />
+                                    <path d="M190,150 L210,150 M200,140 L200,160" stroke="white" stroke-width="4" />
+                                    
+                                    <!-- Nodes -->
+                                    <circle cx="140" cy="100" r="20" fill="#3b82f6" opacity="0.8" class="animate-floating" style="animation-delay: 0.2s;" />
+                                    <text x="140" y="104" text-anchor="middle" fill="white" font-size="12">SEO</text>
+                                    
+                                    <circle cx="260" cy="100" r="20" fill="#3b82f6" opacity="0.8" class="animate-floating" style="animation-delay: 0.4s;" />
+                                    <text x="260" y="104" text-anchor="middle" fill="white" font-size="12">SEM</text>
+                                    
+                                    <circle cx="140" cy="200" r="20" fill="#3b82f6" opacity="0.8" class="animate-floating" style="animation-delay: 0.6s;" />
+                                    <text x="140" y="204" text-anchor="middle" fill="white" font-size="12">SMM</text>
+                                    
+                                    <circle cx="260" cy="200" r="20" fill="#3b82f6" opacity="0.8" class="animate-floating" style="animation-delay: 0.8s;" />
+                                    <text x="260" y="204" text-anchor="middle" fill="white" font-size="10">Email</text>
+                                    
+                                    <!-- Decorative Elements -->
+                                    <circle cx="100" cy="150" r="8" fill="#60a5fa" opacity="0.6" class="animate-pulse" style="animation-delay: 0.3s;" />
+                                    <circle cx="300" cy="150" r="8" fill="#60a5fa" opacity="0.6" class="animate-pulse" style="animation-delay: 0.6s;" />
+                                    <circle cx="200" cy="80" r="8" fill="#60a5fa" opacity="0.6" class="animate-pulse" style="animation-delay: 0.9s;" />
+                                    <circle cx="200" cy="220" r="8" fill="#60a5fa" opacity="0.6" class="animate-pulse" style="animation-delay: 1.2s;" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-20 bg-slate-800 relative">
+        <div class="animated-bg">
+            <div class="animated-bg-shape" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%); width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-1">
+            <div class="max-w-3xl mx-auto text-center mb-12 animate-fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Hardwired Technologies is a boutique digital agency serving Canadian businesses with premium digital marketing and web development services. We're the team that big agencies often outsource their work to – now you can work with us directly.
+                </p>
+                <p class="text-xl text-gray-300">
+                    Our lean, expert team delivers high-quality results without the overhead costs of larger agencies. We focus on measurable outcomes and transparent communication to ensure your business achieves its digital goals.
+                </p>
+            </div>
+            
+            <!-- Team Values -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                <div class="bg-slate-900/80 p-6 rounded-lg text-center animate-fadeInUp stagger-item hover-lift">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Quality</h3>
+                    <p class="text-gray-400">We never compromise on the quality of our work</p>
+                </div>
+                
+                <div class="bg-slate-900/80 p-6 rounded-lg text-center animate-fadeInUp stagger-item hover-lift">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Integrity</h3>
+                    <p class="text-gray-400">We operate with honesty and transparency</p>
+                </div>
+                
+                <div class="bg-slate-900/80 p-6 rounded-lg text-center animate-fadeInUp stagger-item hover-lift">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
+                    <p class="text-gray-400">We embrace new technologies and approaches</p>
+                </div>
+                
+                <div class="bg-slate-900/80 p-6 rounded-lg text-center animate-fadeInUp stagger-item hover-lift">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Partnership</h3>
+                    <p class="text-gray-400">We build lasting relationships with our clients</p>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us -->
+            <div class="mt-20 animate-fadeIn" style="animation-delay: 0.5s;">
+                <div class="bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700/30 p-8 md:p-12 hover-glow transition-all duration-500">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Why Choose Us?</h3>
+                    <div class="space-y-6">
+                        <div class="flex animate-fadeInLeft" style="animation-delay: 0.6s;">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center animate-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                                        <path fill="currentColor" d="M12 2L4 7l8 5 8-5-8-5zm8 10l-8 5-8-5v6l8 5 8-5v-6z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold mb-2">Expertise & Experience</h4>
+                                <p class="text-gray-400">Our team brings years of experience and specialized knowledge in digital marketing and web development for Canadian businesses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex animate-fadeInLeft" style="animation-delay: 0.8s;">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center animate-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold mb-2">Results-Driven Approach</h4>
+                                <p class="text-gray-400">We focus on delivering measurable results that directly impact your business growth and ROI.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex animate-fadeInLeft" style="animation-delay: 1s;">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center animate-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                                        <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold mb-2">Personalized Service</h4>
+                                <p class="text-gray-400">We provide tailored solutions and dedicated support to meet your unique business needs and goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-20 bg-slate-900 relative">
+        <div class="animated-bg">
+            <div class="animated-bg-shape" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%); width: 500px; height: 500px; bottom: -100px; right: -100px;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-1">
+            <div class="text-center mb-12 animate-fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Have a project in mind? Get in touch with us to discuss how we can help your Canadian business succeed online.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10 animate-fadeInLeft">
+                    <!-- Google Form Integration with correct field names from prefilled URL -->
+                    <form id="contactForm" class="space-y-6" action="https://docs.google.com/forms/d/e/1FAIpQLSc2FmWtU5CkXw3qBwgAG4Prl4cmbjhQndNXNwoCV0WIpAsxbw/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                                <label for="name" class="block text-gray-300 mb-2">Full Name</label>
+                                <input type="text" id="name" name="entry.1691618094" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring focus:ring-blue-500/20 transition duration-300" required>
+                            </div>
+                            <div class="animate-fadeInUp" style="animation-delay: 0.3s;">
+                                <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" name="entry.1925538228" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring focus:ring-blue-500/20 transition duration-300" required>
+                            </div>
+                        </div>
+                        <div class="animate-fadeInUp" style="animation-delay: 0.4s;">
+                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="entry.1914898264" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring focus:ring-blue-500/20 transition duration-300">
+                        </div>
+                        <div class="animate-fadeInUp" style="animation-delay: 0.5s;">
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="entry.1299798809" rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring focus:ring-blue-500/20 transition duration-300" required></textarea>
+                        </div>
+                        <div class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                            <button type="submit" class="gradient-bg text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full animate-ripple">
+                                Send Message
+                            </button>
+                        </div>
+                        <div id="formSuccess" class="form-success bg-green-900/30 border border-green-500/30 rounded-lg text-center">
+                            <p class="text-green-400 font-medium">Thank you for your message! We'll get back to you soon.</p>
+                        </div>
+                    </form>
+                    <!-- Hidden iframe to prevent page reload -->
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-10 animate-fadeInRight">
+                    <div class="bg-slate-800 rounded-xl p-8 h-full border border-slate-700/50 hover-glow transition-all duration-500">
+                        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start animate-fadeInRight" style="animation-delay: 0.3s;">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4 shrink-0 animate-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email Us</h4>
+                                    <p class="text-gray-400">enquiry@hardwiredtechnologies.in</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start animate-fadeInRight" style="animation-delay: 0.5s;">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4 shrink-0 animate-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Business Hours</h4>
+                                    <p class="text-gray-400">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-400">Saturday - Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 animate-fadeInRight" style="animation-delay: 0.7s;">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-500 transition duration-300 hover-scale">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-500 transition duration-300 hover-scale">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-500 transition duration-300 hover-scale">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-6 bg-slate-900/50 rounded-lg border border-slate-700/30 animate-fadeInRight" style="animation-delay: 0.9s;">
+                            <h4 class="font-bold mb-4">Request a Free Quote</h4>
+                            <p class="text-gray-400 mb-4">
+                                Schedule a no-obligation consultation with our team to discuss your project and get a customized quote.
+                            </p>
+                            <a href="#" class="text-blue-500 hover:text-blue-400 font-medium flex items-center hover-lift">
+                                Book a Call
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-10 border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 animate-fadeIn">
+                    <div class="logo-container mb-4">
+                        <img src="https://raw.githubusercontent.com/hardwiredtechnologies/website/1bafd3fcc0949fc2fc6fb63a410d5510d61688bc/logo.jpg" alt="Hardwired Technologies Logo" class="logo-img">
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Innovative digital solutions for Canadian businesses
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center md:justify-end gap-8">
+                    <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <h4 class="font-bold mb-3 text-white">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Services</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">About</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <h4 class="font-bold mb-3 text-white">Services</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#services" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Web Development</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Digital Marketing</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">Graphic Design</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-blue-500 transition-colors nav-link">SEO</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center animate-fadeIn" style="animation-delay: 0.6s;">
+                <p class="text-gray-400">
+                    &copy; 2023 Hardwired Technologies. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn gradient-bg w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Laptop Screen Slideshow
+        let currentSlide = 1;
+        const totalSlides = 3;
+        const slideInterval = 4000; // 4 seconds
+        
+        function showSlide(slideNumber) {
+            // Hide all slides
+            document.querySelectorAll('.screen-slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show the selected slide
+            document.getElementById(`slide${slideNumber}`).classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlide = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+            showSlide(currentSlide);
+        }
+        
+        // Set up automatic slideshow
+        setInterval(nextSlide, slideInterval);
+        
+        // Stats Counter Animation
+        const statCounters = document.querySelectorAll('.stat-counter');
+        
+        function animateCounter(counter, target) {
+            let count = 0;
+            const duration = 2000; // 2 seconds
+            const interval = 50; // Update every 50ms
+            const steps = duration / interval;
+            const increment = target / steps;
+            
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(count);
+                }
+            }, interval);
+        }
+        
+        // Intersection Observer for counter animation
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateCounter(entry.target, target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        statCounters.forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // Animation on scroll
+        const animatedElements = document.querySelectorAll('.animate-fadeIn, .animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight, .animate-slideIn, .typing-effect, .service-card, .stat-item');
+        
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    animationObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animatedElements.forEach(element => {
+            animationObserver.observe(element);
+        });
+        
+        // Google Form Submission Handling
+        // Variable to track if the form has been submitted
+        var submitted = false;
+        
+        // Get the form and success message elements
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        // Hide the success message initially
+        formSuccess.style.display = 'none';
+        
+        // Function to handle form submission
+        window.onload = function() {
+            // Set up a timer to check if the form has been submitted
+            const checkSubmitted = setInterval(function() {
+                if(submitted) {
+                    // Hide the form
+                    contactForm.style.opacity = '0';
+                    setTimeout(() => {
+                        contactForm.style.display = 'none';
+                        
+                        // Show the success message
+                        formSuccess.style.display = 'block';
+                        setTimeout(() => {
+                            formSuccess.classList.add('show');
+                        }, 100);
+                        
+                        // Reset the form for future submissions
+                        contactForm.reset();
+                        submitted = false;
+                        
+                        // After 5 seconds, hide the success message and show the form again
+                        setTimeout(() => {
+                            formSuccess.classList.remove('show');
+                            setTimeout(() => {
+                                formSuccess.style.display = 'none';
+                                contactForm.style.display = 'block';
+                                setTimeout(() => {
+                                    contactForm.style.opacity = '1';
+                                }, 100);
+                            }, 500);
+                        }, 5000);
+                    }, 500);
+                    
+                    clearInterval(checkSubmitted);
+                }
+            }, 500);
+        };
+        
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start the typing animation after a short delay
+            setTimeout(() => {
+                document.querySelector('.typing-effect').style.animationPlayState = 'running';
+            }, 500);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9676e54a34e948f5',t:'MTc1Mzg5OTg5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
